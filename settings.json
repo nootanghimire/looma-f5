@@ -1,8 +1,9 @@
 {
-	"classes":8,
-	"config":"classConfig",
-	"locale": {
-		"en":"localeEn.json"
-		},
-	"defaultLocale":"en"	
+   
+    "classes": 8,
+    "config": "classConfig",
+    "locale": {
+        "en": "localeEn"
+    },
+    "defaultLocale": "en"
 }
