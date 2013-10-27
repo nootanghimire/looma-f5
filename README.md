@@ -13,7 +13,7 @@ Developments
 ---
 
 1. Did a test in my local firefox to read local json settings file
-2. ...
+2. ..
 
 Contributing?
 ----

@@ -1,0 +1,12 @@
+body{
+	margin:0;
+	padding:0;
+}
+
+#top{
+	text-align:center;
+	height: 100px;
+	background-color:rgba(80,60,80,0.8);
+	color:white;
+	font-size: 60px;
+}
