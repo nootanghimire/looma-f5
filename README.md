@@ -9,7 +9,15 @@ Why?
 
 The major responsibilites are to completely remove python and php from the initial looma project. We are trying to build the complete interface using only HTML/CSS/JS.
 
+Developments
+---
+
+1. Did a test in my local firefox to read local json settings file
+2. ...
+
 Contributing?
 ----
 
 Yay! I love to see pull requests.
+
+
