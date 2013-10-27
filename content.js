@@ -9,6 +9,8 @@ readSettings(function(data){
 			//Later Change this approach. 
 			//Use a class. and readLocale()  will create a object inside the main looma class
 			//and writeContent can use localiztion approach
+			//may be work on a algorithm that can automatically guess the correct
+			//mapping, instead of one-to-one mapping everything
 			//and we could pass as
 			//writeContent('top', 'div', 'looma-f5');
 
