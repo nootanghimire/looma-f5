@@ -1,7 +1,9 @@
 //Content.js
 
-readSettings(function(data){
-		readLocale(getLocaleDefault(data), function(localeData){
+
+looma.readSettings(function(){	
+	alert(looma.settings);
+		looma.readLocale(looma.getLocaleDefault(looma.settings), function(){
 
 			//Start Writing contents here
 
@@ -17,8 +19,8 @@ readSettings(function(data){
 
 			//Start Writing Contents here. Do not tamper index.html
 			
-			writeContent('top', 'div', localeData['looma-f5']);
-			writeContent('content', 'div', localeData['test']);
+			looma.writeContent('top', 'div', 'looma-f5');
+			looma.writeContent('content', 'div','test 132');
 
 	});
 });
