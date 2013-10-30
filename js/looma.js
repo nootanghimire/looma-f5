@@ -45,7 +45,6 @@ var looma = {
 
 	l10n: function(content){
 		var localeObject =  this.localeObj;
-		alert(localeObject);
 		var arr = content.split(" ").reverse(); //Split by space. and reverse (actually non-reversed) the order
 		var newArr =[]; //Container
 		for (var i = arr.length - 1; i >= 0; i--) {

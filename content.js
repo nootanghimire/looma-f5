@@ -2,7 +2,6 @@
 
 
 looma.readSettings(function(){	
-	alert(looma.settings);
 		looma.readLocale(looma.getLocaleDefault(looma.settings), function(){
 
 			//Start Writing contents here
