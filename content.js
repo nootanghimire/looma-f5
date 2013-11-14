@@ -19,7 +19,11 @@ looma.readSettings(function(){
 			//Start Writing Contents here. Do not tamper index.html
 			
 			looma.writeContent('top', 'div', 'looma-f5');
-			looma.writeContent('content', 'div','test 132');
+			var i;
+			for(i=1; i<= looma.settings.classes; i++){
+				looma.writeContent('class-'+i, 'button', 'Class '+i);
+			}
+			
 
 	});
 });

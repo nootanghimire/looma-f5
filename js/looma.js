@@ -28,6 +28,12 @@ var looma = {
 		});
 	},
 
+	getCustomSettings: function(settingPath, callback){
+		var data = this.callAjax(settingPath, function(data){
+			callback(JSON.parse(data));
+		});
+	}
+
 	readLocale: function(localepath, callback){
 		var that = this;
 		var data = this.callAjax('locale/'+localepath+'.json', function(data){
