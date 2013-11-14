@@ -18,12 +18,16 @@ looma.readSettings(function(){
 
 			//Start Writing Contents here. Do not tamper index.html
 			
-			looma.writeContent('top', 'div', 'looma-f5');
+			looma.write('div', 'looma-f5',false,{"id":"top"});
+			var classContainer = looma.write('div', '', false, {"id":"classContainer"});
 			var i;
 			for(i=1; i<= looma.settings.classes; i++){
-				looma.writeContent('class-'+i, 'button', 'Class '+i);
-			}
-			
-
+				looma.write('button', 'Class '+i, classContainer,
+					{
+						"data-class":i,
+						"onclick":"looma.showSubjects(this, 'data-class')"	
+					}
+				);
+			}			
 	});
 });

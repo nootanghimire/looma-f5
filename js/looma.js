@@ -32,7 +32,7 @@ var looma = {
 		var data = this.callAjax(settingPath, function(data){
 			callback(JSON.parse(data));
 		});
-	}
+	},
 
 	readLocale: function(localepath, callback){
 		var that = this;
@@ -41,14 +41,22 @@ var looma = {
 			callback();
 		});
 	},
-
-	writeContent: function(id, typeofElement, content){
+	write: function(typeofElement, content, parent=false, attribObj = false){
 		var currentElement = document.createElement(typeofElement);
-		currentElement.setAttribute('id', id);
+		//currentElement.setAttribute('id', id);
 		currentElement.innerHTML = this.l10n(content);
-		document.body.appendChild(currentElement);
+		if(parent==false){
+			document.body.appendChild(currentElement);	
+		} else {
+			parent.appendChild(currentElement);
+		}
+		if(attribObj != false){
+			for(var key in attribObj){
+				currentElement.setAttribute(key, attribObj[key]);
+			}
+		}
+		return currentElement;
 	},
-
 	l10n: function(content){
 		var localeObject =  this.localeObj;
 		var arr = content.split(" ").reverse(); //Split by space. and reverse (actually non-reversed) the order
@@ -80,5 +88,24 @@ var looma = {
 	},
 	getLocaleDefault: function(settings){
 		return settings.locale[settings.defaultLocale];
+	},
+
+	showSubjects: function(buttonData, attr){
+		//remove previous div
+		var elem = document.getElementById('subjects');
+		if(elem != null){
+			elem.parentNode.removeChild(elem);
+		}
+		var cls = buttonData.getAttribute(attr);
+		var path = "classes/Class"+cls+"/"+this.settings.config+".json";
+		//alert(path);
+		var that = this;
+		this.callAjax(path, function(data){
+			var obj = JSON.parse(data);
+			var objSub = that.write('div','',false,{"id":"subjects"});
+			for (var i = 0; i < obj.subjects.length; i++) {
+				that.write('button', obj.subjects[i], objSub, {"onclick":"looma.loadSub("+cls+",'"+obj.subjects[i]+"')"});
+			};
+		});
 	}
 };
