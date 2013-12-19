@@ -1,12 +1,42 @@
+@font-face {
+	font-family: 'open_sansregular';
+	src: url('../fonts/OpenSans-Regular-webfont.eot');
+	src: url('../fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/OpenSans-Regular-webfont.woff') format('woff'),
+	url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+	url('../fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+
+	font-weight: normal;
+	font-style: normal;
+
+}
 body{
+	font-family: 'open_sansregular';
 	margin:0;
 	padding:0;
+	width: 100%;
 }
 
 #top{
-	text-align:center;
-	height: 100px;
-	background-color:rgba(50,100,255,0.8);
-	color:white;
-	font-size: 60px;
+	position: absolute;
+	top:-5px;
+	left: 10px;
+	height: 75px;
+	line-height: 75px;
+	color:#01a2e8;
+	font-size: 40px;
+	cursor: default;
+	text-shadow:0px 0px 5px rgba(0,160,240,0.2);
+}
+#classContainer{
+	background: #eee;
+	border-bottom: 1px solid #ccc;
+}
+#classContainer button{
+	margin:20px 10px;
+}
+#subjects{
+	height:50px;
+	position: relative;
+	top:-20px;
 }

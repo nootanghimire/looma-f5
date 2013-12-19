@@ -13,19 +13,21 @@ looma.readSettings(function(){
 			//may be work on a algorithm that can automatically guess the correct
 			//mapping, instead of one-to-one mapping everything
 			//and we could pass as
-			//writeContent('top', 'div', 'looma-f5');
-
+			//looma.write(typeofElement, content, parent=false, attribObj = false)
 
 			//Start Writing Contents here. Do not tamper index.html
-			
-			looma.write('div', 'looma-f5',false,{"id":"top"});
-			var classContainer = looma.write('div', '', false, {"id":"classContainer"});
+			//
+			looma.write('div', 'looma-f5',false,{"id":"top","class":"user-select-none"});
+			var centered = looma.write('center','',false,{"id":"centered"});
+			var classContainer = looma.write('div', '', centered, {"id":"classContainer"});
 			var i;
+
 			for(i=1; i<= looma.settings.classes; i++){
 				looma.write('button', 'Class '+i, classContainer,
 					{
 						"data-class":i,
-						"onclick":"looma.showSubjects(this, 'data-class')"	
+						"onclick":"looma.showSubjects(this, 'data-class')",
+						"class":"submit-box s-white"
 					}
 				);
 			}			
