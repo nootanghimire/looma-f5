@@ -1,5 +1,6 @@
 //Content.js
 
+//TODO: Write Navigation bar at the bottom.  
 
 //Write needed functions!
 
@@ -25,7 +26,32 @@ looma.showSubjects = function(buttonData, attr) {
 
 looma.loadSub = function(cls, sub){
 	//locate the json file for the 
-}
+	var path = "classes/Class"+cls+"/"+sub+"/config.json";
+	var that = this;
+	this.callAjax(path, function(data){
+		var obj = JSON.parse(data);
+		//get the file names. List it. And then use PDF.js to render it.
+		for (var i = obj.files.length - 1; i >= 0; i--) {
+			that.write('button',obj.files[i].name,false,{"onclick":"looma.renderPDF('classes/Class"+cls+"/"+sub+"/"+obj.files[i].path+"');"}); 
+		};
+	});
+};
+
+looma.renderPDF = function(path){
+	//user viewer js to render the pdf. (with basic controls)
+
+	//remove the div first.
+
+	var mainPDFDiv = this.write('div',"",false,{"id":"pdf-Div"})
+	var controlDiv = this.write('div', "",mainPDFDiv);
+	this.write('button', "Previous", controlDiv, {"id":"prev","onclick":"goPrevious()"});
+	this.write('button', "Next", controlDiv, {"id":"next","onclick":"goNext()"});
+	this.write('span','Page: <span id="page_num"></span> / <span id="page_count"></span>', controlDiv);
+	this.write('canvas','', this.write('div','',mainPDFDiv), {'id':'the-canvas','style':'border:1px solid black'});
+	mainPDFDiv.innerHTML += '<script type="text/javascript" src="js/pdf.js"></script>';
+	mainPDFDiv.innerHTML += '<script type="text/javascript" src="js/FnForPdf.js"></script>';
+	mainPDFDiv.innerHTML += '<script type="text/javascript">loadPDF(\''+path+'\')</script>';	
+};
 
 
 
