@@ -1,6 +1,34 @@
 //Content.js
 
 
+//Write needed functions!
+
+looma.showSubjects = function(buttonData, attr) {
+	//remove previous div
+		var elem = document.getElementById('subjects');
+		if(elem != null){
+			elem.parentNode.removeChild(elem);
+		}
+		var cls = buttonData.getAttribute(attr);
+		var path = "classes/Class"+cls+"/"+this.settings.config+".json";
+		//alert(path);
+		var that = this;
+		this.callAjax(path, function(data){
+			var obj = JSON.parse(data);
+			var objSub = that.write('div','<button onclick="looma.showSubjects(null, 200)" class="submit-box s-white">Hide</button>',classContainer,{"id":"subjects","class":"user-select-none","style":"cursor:default"});
+			for (var i = 0; i < obj.subjects.length; i++) {
+				that.write('button', obj.subjects[i], objSub, {"class":"submit-box s-green","onclick":"looma.loadSub("+cls+",'"+obj.subjects[i]+"')"});
+			};
+		});
+
+};
+
+looma.loadSub = function(cls, sub){
+	//locate the json file for the 
+}
+
+
+
 looma.readSettings(function(){	
 		looma.readLocale(looma.getLocaleDefault(looma.settings), function(){
 
@@ -33,3 +61,6 @@ looma.readSettings(function(){
 			}			
 	});
 });
+
+
+
