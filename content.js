@@ -31,8 +31,10 @@ looma.loadSub = function(cls, sub){
 	this.callAjax(path, function(data){
 		var obj = JSON.parse(data);
 		//get the file names. List it. And then use PDF.js to render it.
+		var clickurl=""
 		for (var i = obj.files.length - 1; i >= 0; i--) {
-			that.write('button',obj.files[i].name,false,{"onclick":"looma.renderPDF('classes/Class"+cls+"/"+sub+"/"+obj.files[i].path+"');"}); 
+			clickurl="'classes/Class"+cls+"/"+sub+"/"+obj.files[i].path+"'"
+			that.write('div','<button class="submit-box s-blue" onclick="looma.renderPDF('+clickurl+');">'+obj.files[i].name+'</button>',classContainer,{"id":"subject-list"}); 
 		};
 	});
 };

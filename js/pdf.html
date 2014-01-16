@@ -12,6 +12,7 @@
   </div>
 
   <script type="text/javascript" src="pdf.js"></script>
+  <script type="text/javascript" src="jquery-1.10.2.js"></script>
   
   <script type="text/javascript">
     //
@@ -20,9 +21,20 @@
     // security restrictions, we have to use a file server with special headers
     // (CORS) - most servers don't support cross-origin browser requests.
     //
-
-    var url = 'English-3.pdf';
-
+    var baseurl= $(location).attr('href');
+    //baseurl="www.google.com/qwe#abc.pdf"
+    var n=baseurl.length
+    var num=0;
+    for(i=0;i<n;i++){
+      if(baseurl.substr(i,1)=="#"){
+        num=i+1;
+        break;
+      }
+    }
+    //var url = 'English-3.pdf';
+    
+    var url= baseurl.substr(num)
+    //alert(url);
     //
     // Disable workers to avoid yet another cross-origin issue (workers need the URL of
     // the script to be loaded, and currently do not allow cross-origin scripts)
