@@ -39,18 +39,29 @@ looma.loadSub = function(cls, sub){
 
 looma.renderPDF = function(path){
 	//user viewer js to render the pdf. (with basic controls)
-
+	//i think you need to iframe it.
 	//remove the div first.
 
-	var mainPDFDiv = this.write('div',"",false,{"id":"pdf-Div"})
+	//I need to create a fuckin' iframe in here. Instead of those ill-looking scripts and all 
+	//I need to create a godforsaken html, use hashtags(#) to get those fuckin' paths to PDFs
+	//But you know what? A movie is a movie. So, Dear Code, Please kindly be fucked till i finish the movie!
+	//Savvy?
+
+	/*var mainPDFDiv = this.write('div',"",false,{"id":"pdf-Div"})
+	mainPDFDiv.innerHTML += '<script type="text/javascript" src="js/pdf.js"></script>';
+	mainPDFDiv.innerHTML += '<script type="text/javascript" src="js/FnForPdf.js"></script>';
+
 	var controlDiv = this.write('div', "",mainPDFDiv);
 	this.write('button', "Previous", controlDiv, {"id":"prev","onclick":"goPrevious()"});
 	this.write('button', "Next", controlDiv, {"id":"next","onclick":"goNext()"});
 	this.write('span','Page: <span id="page_num"></span> / <span id="page_count"></span>', controlDiv);
 	this.write('canvas','', this.write('div','',mainPDFDiv), {'id':'the-canvas','style':'border:1px solid black'});
-	mainPDFDiv.innerHTML += '<script type="text/javascript" src="js/pdf.js"></script>';
-	mainPDFDiv.innerHTML += '<script type="text/javascript" src="js/FnForPdf.js"></script>';
-	mainPDFDiv.innerHTML += '<script type="text/javascript">loadPDF(\''+path+'\')</script>';	
+	mainPDFDiv.innerHTML += '<script type="text/javascript">loadPDF(\''+path+'\')</script>';*/	
+	//Create an iframe
+	var mainPDFDiv = this.write('div',"",false,{"id":"pdf-Div"});
+	var framePDF = this.write('iframe',"",mainPDFDiv ,{"src":path});
+
+	
 };
 
 
