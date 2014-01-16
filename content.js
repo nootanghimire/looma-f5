@@ -58,8 +58,8 @@ looma.renderPDF = function(path){
 	this.write('canvas','', this.write('div','',mainPDFDiv), {'id':'the-canvas','style':'border:1px solid black'});
 	mainPDFDiv.innerHTML += '<script type="text/javascript">loadPDF(\''+path+'\')</script>';*/	
 	//Create an iframe
-	var mainPDFDiv = this.write('div',"",false,{"id":"pdf-Div"});
-	var framePDF = this.write('iframe',"",mainPDFDiv ,{"src":path});
+	var mainPDFDiv = this.write('div',"",false,{"id":"pdf-Div", "align":"center"});
+	var framePDF = this.write('iframe',"",mainPDFDiv ,{"src":path, "height":"800px;", "width":"80%"});
 
 	
 };

@@ -41,7 +41,9 @@ var looma = {
 			callback();
 		});
 	},
-	write: function(typeofElement, content, parent=false, attribObj = false){
+	write: function(typeofElement, content, parent, attribObj){
+		parent = parent || false;
+		attribObj = attribObj || false;
 		var currentElement = document.createElement(typeofElement);
 		//currentElement.setAttribute('id', id);
 		currentElement.innerHTML = this.l10n(content);
