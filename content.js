@@ -33,7 +33,7 @@ looma.loadSub = function(cls, sub){
 		//get the file names. List it. And then use PDF.js to render it.
 		var clickurl=""
 		for (var i = obj.files.length - 1; i >= 0; i--) {
-			clickurl="'classes/Class"+cls+"/"+sub+"/"+obj.files[i].path+"'"
+			clickurl="'../../classes/Class"+cls+"/"+sub+"/"+obj.files[i].path+"'"
 			that.write('div','<button class="submit-box s-blue" onclick="looma.renderPDF('+clickurl+');">'+obj.files[i].name+'</button>',classContainer,{"id":"subject-list"}); 
 		};
 	});
@@ -61,7 +61,7 @@ looma.renderPDF = function(path){
 	mainPDFDiv.innerHTML += '<script type="text/javascript">loadPDF(\''+path+'\')</script>';*/	
 	//Create an iframe
 	var mainPDFDiv = this.write('div',"",false,{"id":"pdf-Div", "align":"center"});
-	var framePDF = this.write('iframe',"",mainPDFDiv ,{"src":path, "height":"800px;", "width":"80%"});
+	var framePDF = this.write('iframe',"",mainPDFDiv ,{"src":"pdfjs/web/viewer.html?"+path, "height":"800px;", "width":"80%"});
 
 	
 };
