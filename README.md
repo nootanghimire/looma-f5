@@ -12,8 +12,15 @@ The major responsibilites are to completely remove python and php from the initi
 Developments
 ---
 
-1. Did a test in my local firefox to read local json settings file
-2. Localization  successfull (un-optimized and un-managed)
+1. First Prototype Stage Complete: Able to replicate PDF reading functionality of looma.
+
+
+Using?
+---
+
+I would like to call this stage as `private beta`, but if you want to get your hands dirty: You just need to clone this. Create a sort of server in your computer (does not need to run any code) and then point to the index.html
+
+Easy, huh?
 
 Contributing?
 ----
